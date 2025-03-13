@@ -1,8 +1,4 @@
 // Snack 2 - Il primo libro scontato
-// Creare un array (availableBooks) che contiene tutti i libri disponibili.
-// Crea un array (discountedBooks) con gli availableBooks, ciascuno con il prezzo scontato del 20% (mantieni lo stesso formato e arrotonda al centesimo)
-// Salva in una variabile (fullPricedBook) il primo elemento di discountedBooks che ha un prezzo intero (senza centesimi).
-
 const books = [
     { 
         title: "React Billionaire", 
@@ -49,3 +45,28 @@ const books = [
         tags: ['html', 'advanced', 'junior', 'mid-senior']
     },
   ];
+
+// Creare un array (availableBooks) che contiene tutti i libri disponibili.
+const availableBooks = books.filter(b => b.available === true)
+console.log('array book available', availableBooks)
+
+
+// Crea un array (discountedBooks) con gli availableBooks, ciascuno con il prezzo scontato del 20% (mantieni lo stesso formato e arrotonda al centesimo)
+const discountedBooks = availableBooks.map(el => {
+  
+    let prezzoIntero = parseFloat(el.price)
+    console.log('array prezzo parsato', prezzoIntero)
+    
+    let prezzoScontato =  prezzoIntero * (20/100) + '€'
+    console.log('array prezzo scontato', prezzoScontato)
+    
+     return {  ...el, price: prezzoScontato }
+    }                                       
+  )
+  
+  console.log('array prezzo scontato', discountedBooks)
+
+
+// Salva in una variabile (fullPricedBook) il primo elemento di discountedBooks che ha un prezzo intero (senza centesimi).
+const fullPricedBook = discountedBooks.find(el => Number.isInteger(parseFloat(el.price)))
+console.log('array prezzo intero', fullPricedBook)
