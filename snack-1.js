@@ -47,8 +47,16 @@ const books = [
     },
   ];
   
-//   Snack 1 - Filtra e Modifica
-// Crea una funzione che somma due numeri.
+//   Snack 1 - Filtra e Modifica : Crea una funzione che somma due numeri.
+
 // Crea un array (longBooks) con i libri che hanno più di 300 pagine;
+const longBooks =   books.filter((b => b.pages > 300))
+console.log(longBooks)
+
+
 // Creare un array (longBooksTitles) che contiene solo i titoli dei libri contenuti in longBooks.
+const longBookTitles = longBooks.filter(b => console.log(b.title))
+
+
 // Stampa in console ogni titolo nella console.
+const titles = books.filter(b => console.log(b.title))
